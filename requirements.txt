@@ -1,0 +1,11 @@
+streamlit
+ultralytics
+Pillow
+langchain
+faiss-cpu
+openai
+sentence-transformers
+langchain-community 
+langchain-groq 
+pypdf 
+python-dotenv
