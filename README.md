@@ -1,5 +1,7 @@
 # ☕ Coffee Leaf Disease Detection & Remedy Assistant 🌿
 
+Check out the [arXiv preprint](https://arxiv.org/abs/2505.21544) for detailed methodology and results.
+
 An intelligent, end-to-end AI system for detecting coffee leaf diseases and providing expert-level remedies through a conversational interface powered by YOLOv8 and a RAG-based LLM pipeline.
 
 ## 📌 Problem Statement
@@ -43,34 +45,27 @@ This project solves this by combining state-of-the-art object detection (YOLOv8)
 | **Overall**    | 0.664     | 0.668  | 0.681  | 0.454     |
 
 ---
+## 🧰 Tech Stack
+- **YOLOv8** - Object Detection (Ultralytics)
 
-## 🧠 System Architecture
+- **Streamlit** - Web UI
 
-```mermaid
-graph TD
-    A[User Uploads Image via Streamlit] --> B[YOLOv8 Inference]
-    B --> C{Is Disease Detected?}
-    
-    C -- Yes --> D[Query FAISS Vector Store]
-    D --> E[Retrieve Relevant Chunks from Knowledge Base]
-    E --> F[Augment Prompt with Retrieved Info]
-    
-    C -- No --> F
+- **Groq API** - Fast LLM access (LLaMA 3)
 
-    F --> G[LLM via Groq API]
-    G --> H[Generate Explanation and Remedies]
-    H --> I[Display Result with References]
-    I --> J[Enable Follow-Up Questions via Chat]
-    J --> K[LangChain Memory Maintains Context]
+- **Hugging Face** - Embedding models
 
-    subgraph "YOLOv8 Detection"
-        B
-    end
+- **LangChain** - Conversational memory and RAG
 
-    subgraph "RAG Pipeline"
-        D --> E
-    end
+- **FAISS** - Vector search for knowledge retrieval
+  
+---
+## 📌 Future Work
+- Upgrade to YOLOv10 or YOLOv11 for better detection accuracy
 
-    subgraph "LLM + Chat Interface"
-        G --> H --> I --> J --> K
-    end
+- Enrich the knowledge base with expert-curated agricultural content
+
+- Expand the system to support other crops and diseases
+
+- Improve multi-language support for non-English-speaking users
+
+
